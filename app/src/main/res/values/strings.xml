@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Flight Game</string>
+    <string name="point1">1 Point</string>
+    <string name="point3">3 Points</string>
+    <string name="gameover">Game Over</string>
+    <string name="game_over">Game Over</string>
+    <string name="flight_game">Flight Game</string>
+    <string name="todo">TODO</string>
+    <string name="hs">100</string>
+    <string name="gp">120</string>
+    <string name="games_played">Games Played</string>
+    <string name="game_overm">GAME OVER</string>
+    <string name="score_550">Score: 550</string>
+    <string name="tap_to_start">Tap to Start</string>
+    <string name="planes_shop">Planes Shop</string>
+    <string name="ruby_coins">100</string>
+    <string name="locked">LOCKED</string>
+    <string name="p2_coins">30</string>
+    <string name="p3_coins">60</string>
+    <string name="p4_coins">90</string>
+    <string name="screen_coins">100</string>
+</resources>

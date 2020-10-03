@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_start"
+    tools:context=".ResultActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="@string/game_overm"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21sp"
+            android:text="@string/hs"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/highScoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="57sp"
+            android:text="@string/gp"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/gamesPlayedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21sp"
+            android:fontFamily="casual"
+            android:text="@string/games_played"
+            android:textSize="33sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/replay"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="39dp"
+            android:background="@drawable/ic_action_replay"
+            android:contentDescription="@string/todo"
+            android:onClick="tryAgain" />
+
+    </LinearLayout>
+
+</RelativeLayout>

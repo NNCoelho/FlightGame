@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_game"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#88808080">
+
+        <TextView
+            android:id="@+id/score_lb"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/score_550"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageButton
+            android:id="@+id/pause_lb"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="12sp"
+            android:background="@drawable/ic_action_pause"
+            android:contentDescription="@string/todo"
+            android:onClick="pauseGame" />
+
+        <ImageView
+            android:id="@+id/imgruby"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+            android:layout_toStartOf="@id/pause_lb"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ruby" />
+
+        <TextView
+            android:id="@+id/tv_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+            android:layout_toStartOf="@+id/imgruby"
+            android:text="@string/screen_coins"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/startLb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60sp"
+            android:text="@string/tap_to_start"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="18dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/plane" />
+
+        <ImageView
+            android:id="@+id/ruby"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ruby" />
+
+        <ImageView
+            android:id="@+id/diamond"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/diamond" />
+
+        <ImageView
+            android:id="@+id/skull"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/skull" />
+
+        <ImageView
+            android:id="@+id/bomb"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/bomb" />
+
+        <FrameLayout
+            android:id="@+id/frame_lb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="129dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/pause" />
+
+            <ImageView
+                android:id="@+id/start_lb"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/ic_action_start"
+                android:contentDescription="@string/todo"
+                android:onClick="pauseGame" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
