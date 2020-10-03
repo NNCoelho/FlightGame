@@ -31,7 +31,7 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="12sp"
             android:background="@drawable/ic_action_pause"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:onClick="pauseGame" />
 
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
             android:layout_toStartOf="@id/pause_lb"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ruby" />
 
         <TextView
@@ -79,35 +79,35 @@
             android:layout_height="90dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="18dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/plane" />
 
         <ImageView
             android:id="@+id/ruby"
             android:layout_width="39dp"
             android:layout_height="39dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ruby" />
 
         <ImageView
             android:id="@+id/diamond"
             android:layout_width="39dp"
             android:layout_height="39dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/diamond" />
 
         <ImageView
             android:id="@+id/skull"
             android:layout_width="39dp"
             android:layout_height="39dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/skull" />
 
         <ImageView
             android:id="@+id/bomb"
             android:layout_width="39dp"
             android:layout_height="39dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/bomb" />
 
         <FrameLayout
@@ -120,7 +120,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="129dp"
-                android:contentDescription="@string/todo"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/pause" />
 
             <ImageView
@@ -130,7 +130,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="200dp"
                 android:background="@drawable/ic_action_start"
-                android:contentDescription="@string/todo"
+                android:contentDescription="@string/app_name"
                 android:onClick="pauseGame" />
 
         </FrameLayout>

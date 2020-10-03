@@ -53,7 +53,7 @@
             android:layout_height="69dp"
             android:layout_marginTop="39dp"
             android:background="@drawable/ic_action_replay"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/app_name"
             android:onClick="tryAgain" />
 
     </LinearLayout>
