@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -370,14 +371,15 @@ public class MainActivity extends AppCompatActivity {
             timer.cancel();
             timer = null;
 
-            Drawable d = getResources().getDrawable(R.drawable.ic_action_paused);
+
+            Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_action_paused, null);
             pauseLb.setBackground(d);
 
             frameLb.setVisibility(View.VISIBLE);
         } else {
             pause_flg = false;
 
-            Drawable d = getResources().getDrawable(R.drawable.ic_action_pause);
+            Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_action_pause, null);
             pauseLb.setBackground(d);
 
             frameLb.setVisibility(View.GONE);
