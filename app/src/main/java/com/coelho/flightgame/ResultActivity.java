@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,17 +15,43 @@ public class ResultActivity extends AppCompatActivity {
 
     int highScore;
 
+    // FULLSCREEN
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            hideSystemUI();
+        } else {
+            showSystemUI();
+        }
+    }
+
+    private void hideSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    private void showSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        // FullScreen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        // Mapping Elements
+        // MAPPING ELEMENTS
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         TextView highScoreLabel = findViewById(R.id.highScoreLabel);
         TextView gamesPlayedLabel = findViewById(R.id.gamesPlayedLabel);
@@ -34,7 +59,7 @@ public class ResultActivity extends AppCompatActivity {
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText("Score: " + score);
 
-        // HighScore
+        // HIGHSCORE
         SharedPreferences preferencesScore = getSharedPreferences("HIGHSCORE", Context.MODE_PRIVATE);
         highScore = preferencesScore.getInt("HIGHSCORE", 0);
 
@@ -48,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
             highScoreLabel.setText("HighScore: " + highScore);
         }
 
-        // Games Played
+        // GAMES PLAYED
         SharedPreferences preferencesGames = getSharedPreferences("GAMES", Context.MODE_PRIVATE);
         int games = preferencesGames.getInt("GAMES", 0);
 
@@ -59,7 +84,7 @@ public class ResultActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    // Try Again or Restart
+    // TRY AGAIN OR RESTART
     public void tryAgain(View view) {
         startActivity(new Intent(getApplicationContext(), StartActivity.class));
         finish();

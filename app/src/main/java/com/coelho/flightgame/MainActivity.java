@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declaração de Todas as Variáveis e Elementos
+    // DECLARATION OF ALL VARIABLES AND ELEMENTS
     private TextView scoreLabel;
     private TextView startLabel;
     private ImageView player;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private int playerSize;
     private int screenWidth;
 
-    // Posições e Velocidades
+    // POSITIONS AND SPEEDS
     private int playerY;
     private int rubyX;
     private int rubyY;
@@ -68,13 +68,43 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler = new Handler();
     private Timer timer = new Timer();
 
-    // Status
+    // STATUS
     private Boolean action_flg = false;
     private Boolean start_flg = false;
     private Boolean pause_flg = false;
 
     int action;
     int coins = 0;
+
+    // FULLSCREEN
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            hideSystemUI();
+        } else {
+            showSystemUI();
+        }
+    }
+
+    private void hideSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    private void showSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -84,15 +114,11 @@ public class MainActivity extends AppCompatActivity {
 
         final SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         action = settings.getInt("ACTION", 1);
-        coins = settings.getInt("COINS", 250); // (250 for Test - Default is 0)
-
-        // FullScreen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        coins = settings.getInt("COINS", 250); // (250 FOR TEST - DEFAULT IS 0)
 
         sound = new SoundEffects(this);
 
-        // Mapeamento dos Elementos
+        // MAPPING THE ELEMENTS
         scoreLabel = findViewById(R.id.score_lb);
         startLabel = findViewById(R.id.startLb);
         pauseLb = findViewById(R.id.pause_lb);
@@ -139,11 +165,11 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void position() {
 
-        // Função de Colisão entre os objectos e o jogador (Pontos e Game Over)
+        // COLLISION FUNCTION BETWEEN OBJECTS AND THE PLAYER (POINTS AND GAME OVER)
         hit();
 
-        // Velocidades e Posição dos Objectos e do Jogador
-        // Diamond
+        // SPEEDS AND POSITION OF OBJECTS AND PLAYER
+        // DIAMOND
         diamondX -= diamondSpeed;
         if (diamondX < 0) {
             diamondX = screenWidth + 3000;
@@ -152,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         diamond.setX(diamondX);
         diamond.setY(diamondY);
 
-        // Ruby
+        // RUBY
         rubyX -= rubySpeed;
         if (rubyX < 0) {
             rubyX = screenWidth + 3000;
@@ -161,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         ruby.setX(rubyX);
         ruby.setY(rubyY);
 
-        // Skull
+        // SKULL
         skullX -= skullSpeed;
         if (skullX < 0) {
             skullX = screenWidth + 3000;
@@ -170,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         skull.setX(skullX);
         skull.setY(skullY);
 
-        // Bomb
+        // BOMB
         bombX -= bombSpeed;
         if (bombX < 0) {
             bombX = screenWidth + 3000;
@@ -179,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         bomb.setX(bombX);
         bomb.setY(bombY);
 
-        // Player
+        // PLAYER
         if (action_flg) {
             playerY -= playerSpeed;
             if (action == 1) {
@@ -210,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
         tv_coins.setText("" + coins);
     }
 
-    // Função do Movimento do Jogador
+    // PLAYER MOVEMENT FUNCTION
     public boolean onTouchEvent(MotionEvent ME) {
 
         if (!start_flg) {
@@ -253,10 +279,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Função de Colisão entre os objectos e o jogador (Pontos e Game Over)
+    // COLLISION FUNCTION BETWEEN OBJECTS AND THE PLAYER (POINTS AND GAME OVER)
     public void hit() {
 
-        // Diamond Hit
+        // DIAMOND HIT
         int diamondCenterX = diamondX + diamond.getWidth() / 2;
         int diamondCenterY = diamondY + diamond.getHeight() / 2;
 
@@ -268,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
             sound.collectSound();
         }
 
-        // Ruby Hit
+        // RUBY HIT
         int rubyCenterX = rubyX + ruby.getWidth() / 2;
         int rubyCenterY = rubyY + ruby.getHeight() / 2;
 
@@ -281,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
             sound.collectSound();
         }
 
-        // Skull Hit
+        // SKULL HIT
         int skullCenterX = skullX + skull.getWidth() / 2;
         int skullCenterY = skullY + skull.getHeight() / 2;
 
@@ -302,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        // Bomb Hit
+        // BOMB HIT
         int bombCenterX = bombX + bomb.getWidth() / 2;
         int bombCenterY = bombY + bomb.getHeight() / 2;
 
@@ -335,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 
-    // Evento do Pause do Jogo
+    // GAME PAUSE EVENT
     public void pauseGame(View view) {
 
         if (!pause_flg) {
