@@ -8,6 +8,8 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int score;
 
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
     private Timer timer = new Timer();
 
     // STATUS
@@ -133,16 +135,21 @@ public class MainActivity extends AppCompatActivity {
         frameLb = findViewById(R.id.frame_lb);
         tv_coins = findViewById(R.id.tv_coins);
 
+        // WINDOW MANAGER - DEFAULT DISPLAY
         WindowManager windowManager = getWindowManager();
         Display disp = windowManager.getDefaultDisplay();
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
         Point size = new Point();
         disp.getSize(size);
 
         pauseLb.setEnabled(false);
         frameLb.setVisibility(View.GONE);
 
-        screenWidth = size.x;
-        //int screenHeight = size.y;
+        screenWidth = metrics.widthPixels;
+        // screenHeight = metrics.heightPixels;
 
         playerSpeed = Math.round(screenWidth / 59);
         rubySpeed = Math.round(screenWidth / 57);
