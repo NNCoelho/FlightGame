@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int score;
 
-    private Handler handler = new Handler(Looper.getMainLooper());
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private Timer timer = new Timer();
 
     // STATUS
