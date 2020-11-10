@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_start"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    tools:ignore="Overdraw">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +49,6 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/replay"
             android:layout_width="69dp"
             android:layout_height="69dp"
             android:layout_marginTop="39dp"

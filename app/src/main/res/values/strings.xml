@@ -2,7 +2,6 @@
     <string name="app_name">Flight Game</string>
     <string name="point1">1 Point</string>
     <string name="point3">3 Points</string>
-    <string name="gameover">Game Over</string>
     <string name="game_over">Game Over</string>
     <string name="flight_game">Flight Game</string>
     <string name="hs">100</string>
@@ -18,4 +17,6 @@
     <string name="p3_coins">60</string>
     <string name="p4_coins">90</string>
     <string name="screen_coins">100</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="share">Share</string>
 </resources>

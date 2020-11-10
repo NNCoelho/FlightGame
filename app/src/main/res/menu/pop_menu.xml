@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/feedback"
-        android:title="Send Feedback"/>
+        android:title="@string/send_feedback"/>
 
     <item
         android:id="@+id/share"
-        android:title="Share"/>
+        android:title="@string/share"/>
 
 </menu>

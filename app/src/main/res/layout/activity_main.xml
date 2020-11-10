@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_game"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="Overdraw">
 
     <RelativeLayout
         android:layout_width="match_parent"
