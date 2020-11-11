@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.coelho.flightgame.MainActivity startLb" />
+    </entry_points>
+    <pattern value="com.coelho.flightgame.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.coelho.flightgame.ExampleInstrumentedTest" />
+    <pattern value="com.coelho.flightgame.ExampleUnitTest" />
+    <pattern value="com.coelho.flightgame.MainActivity" />
+    <pattern value="com.coelho.flightgame.ResultActivity" />
+    <pattern value="com.coelho.flightgame.ShopActivity" />
+    <pattern value="com.coelho.flightgame.SplashScreenActivity" />
+    <pattern value="com.coelho.flightgame.StartActivity" />
+    <pattern value="com.coelho.flightgame.MainActivity" method="pauseGame" />
+    <pattern value="com.coelho.flightgame.ResultActivity" method="tryAgain" />
+    <pattern value="com.coelho.flightgame.ExampleInstrumentedTest" method="useAppContext" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

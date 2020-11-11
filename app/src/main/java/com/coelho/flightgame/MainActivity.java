@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     private int diamondSpeed;
     private int skullSpeed;
     private int bombSpeed;
-
     private int score;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
@@ -78,36 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
     int action;
     int coins = 0;
-
-    // FULLSCREEN
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hideSystemUI();
-        } else {
-            showSystemUI();
-        }
-    }
-
-    private void hideSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
-    }
-
-    private void showSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -226,11 +195,10 @@ public class MainActivity extends AppCompatActivity {
             } else if (action == 4) {
                 player.setImageResource(R.drawable.plane4);
             }
-            // player.setImageResource(getResources().getIdentifier("player"+action+"", "drawable", getPackageName()));
         } else {
             playerY += playerSpeed;
-            // player.setImageResource(getResources().getIdentifier("player"+action+"", "drawable", getPackageName()));
         }
+        player.setImageResource(getResources().getIdentifier("player" + action + "", "drawable", getPackageName()));
 
         if (playerY < 0) playerY = 0;
 
