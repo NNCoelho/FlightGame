@@ -16,7 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(3000); // AFTER 3 SEC OPENS ACTIVITY OR IN THIS CASE STARTACTIVITY
+                    sleep(3000); // AFTER 3 SEC OPENS STARTACTIVITY
                     startActivity(new Intent(getApplicationContext(), StartActivity.class));
                     finish();
                 } catch (InterruptedException e) {

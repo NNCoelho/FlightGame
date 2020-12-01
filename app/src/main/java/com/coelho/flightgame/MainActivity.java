@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         final SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         action = settings.getInt("ACTION", 1);
-        coins = settings.getInt("COINS", 250); // (250 FOR TEST - DEFAULT IS 0)
+        coins = settings.getInt("COINS", 0); // (250 FOR TEST - DEFAULT IS 0)
 
         sound = new SoundEffects(this);
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         frameLb.setVisibility(View.GONE);
 
         screenWidth = metrics.widthPixels;
-        // screenHeight = metrics.heightPixels;
+        //screenHeight = metrics.heightPixels;
 
         playerSpeed = Math.round(screenWidth / 59);
         rubySpeed = Math.round(screenWidth / 57);
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             playerY += playerSpeed;
         }
-        player.setImageResource(getResources().getIdentifier("player" + action + "", "drawable", getPackageName()));
+        // player.setImageResource(getResources().getIdentifier("player" + action + "", "drawable", getPackageName()));
 
         if (playerY < 0) playerY = 0;
 
